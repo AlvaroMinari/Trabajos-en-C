@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main()
+{
+    char letra;
+    printf("Ingrese una letra: ");
+    scanf("%c",&letra);
+    if(letra>='A' && letra<='Z'){
+        printf("La letra es mayuscula");
+    }
+    if(letra>='a' && letra<='z'){
+        printf("La letra es minuscula");
+    }
+}
