@@ -1,0 +1,27 @@
+/*
+   Una cinta transportadora mueve cajas de un extremo a otro de la cinta en función del 
+   peso de las cajas, el tiempo empleado se determina con esta fórmula:
+   Tiempo [seg] = Peso [Kg] * 60 / 1.2
+   Realizar un programa que permita ingresar el peso de la caja: valor tipo float entre 1 y 5 kilos
+   El programa deberá calcular el tiempo empleado por la cinta transportadora para mover
+   la caja de un extremo a otro de la cinta. Mostrar el resultado por pantalla.
+*/
+
+#include <stdio.h>
+
+void main(){
+
+    float pesoCaja;
+    float tiempo;
+
+    printf("Por favor, ingrese el peso de la caja: ");
+    scanf("%f", &pesoCaja);
+
+    tiempo = (pesoCaja * 60) / 1.2;
+
+    if(pesoCaja >=1 && pesoCaja <= 5){
+        printf("El tiempo empleado fue de %.2f segundos", tiempo);
+    } else{
+        printf("ha ingresado un valor incorrecto");
+    }
+}
