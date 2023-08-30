@@ -1,0 +1,31 @@
+/*diseñar un programa que pida el tipo de pieza entre 
+1 y 2 y cantidad de horas de trabajo entre 1 y 8,calcular
+horas de trabajo a realizar en cada pieza*/
+
+#include <stdio.h>
+
+int main()
+{
+    int pieza;
+    int tiempo;
+    int horasDeT;
+    printf("Ingrese el tipo de pieza que desea cromar, tipo 1 y tipo 2: ");
+    scanf("%d",&pieza);
+    printf("ingrese la cantidad de horas de trabajo entre 1 y 8: ");
+    scanf("%d",&horasDeT);
+    
+    if(pieza==1)
+    {
+        printf("%d",pieza);
+        tiempo=5;
+        horasDeT=tiempo*horasDeT;
+        printf("Las horas de trabajo requeridas son: %d",horasDeT);
+    }
+    if(pieza==2)
+    {
+       printf("%d",pieza); 
+       tiempo=8;
+       horasDeT=tiempo*horasDeT;
+       printf("Las horas de trabajo requeridas son: %d",horasDeT);
+    }
+}
