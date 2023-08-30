@@ -1,0 +1,39 @@
+/*Realizar un programa en Lenguaje C usando un compilador online que permita realizar lo siguiente:
+Una máquina cortadora de placas metálicas utiliza determinada potencia en función del espesor y ancho 
+de las placas a cortar. Los espesores admitidos son: 2 mm, 3 mm y 4 mm y los anchos de las placas admitidos: 80 cm y 100 cm.
+
+Calcular y mostrar la Potencia Inicial y la Potencia Final y potencia media*/
+
+
+#include <stdio.h>
+
+int main()
+{
+    int ancho;
+    float espesor;
+    float PI=0;
+    float PF;
+    float PM;
+    printf("Ingrese el espesor entre 2mm 2.5mm y 3mm: ");
+    scanf("%f",&espesor);
+    printf("Ingrese el ancho de la placa entre 80cm y 100 cm: ");
+    scanf("%d",&ancho);
+    if(espesor==2){
+        PI=2*3000;
+        printf("La potencia inicial es de: %f",PI);
+    }
+    if(espesor==2.5){
+        PI=2.5*3000*1.2;
+        printf("La potencia inicial es de: %f",PI);
+    }
+    if(espesor==3){
+        PI=3*3000*1.5;
+        printf("La potencia inicial es de: %f",PI);
+    }
+    
+    PF=PI+(ancho*10);
+    printf("\nLa potencia final es de: %f",PF);
+    PM=(PI+PF)/2;
+    printf("\nLa potencia media es de: %f",PM);
+  
+}
