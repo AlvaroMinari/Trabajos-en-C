@@ -1,0 +1,39 @@
+/*Ingresar un número entero entre 0 y 100 que represente la temperatura
+   de trabajo de una máquina. Mostrar estos mensajes de acuerdo al
+   valor ingresado*/
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    printf("ingrese un numero entre 1 y 100: ");
+    scanf("%d",&n);
+    if(n<=15){
+        printf("frio");
+    }
+    if(n>15 && n<26){
+        printf("templado");
+    }
+    if(n>25 && n<33){
+        printf("calido");
+    }
+    if(n>32 && n<41){
+        printf("caliente");
+    }
+    if(n>40 && n<51){
+        printf("muy caliente");
+    }
+    if(n>50){
+        printf("sobretemperatura");
+    }
+    
+    printf("\nEl estado de la maquina es: ");
+    if(n>0 && n<33){
+        printf("normal");
+    }
+    if(n>32 && n<41){
+        printf("alerta");
+    }
+    if(n>50){
+        printf("peligro");
+    }
