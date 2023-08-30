@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+void main()
+{
+    float centimetro;
+    float pulgada;
+    float pies;
+    printf("Cantidad de cm a convertir: \n");
+    scanf("%f",&centimetro);
+    pulgada = centimetro / 2.54;
+    pies = centimetro / 30.48;
+    printf("pulgada:%.2f", pulgada);
+    printf("\npies:%.2f", pies);
+    
+}
