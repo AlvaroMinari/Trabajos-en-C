@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+  int n;
+  int n1;
+  int n2;
+  
+  printf("ingrese el primer numero del 1 al 80:");
+  scanf("\n%d",&n1);
+  printf("ingrese segundo numero del 1 al 80:");
+  scanf("\n%d",&n2);
+ 
+  for(n=n1;n<=n2;n++){
+  printf("*");}
+}
