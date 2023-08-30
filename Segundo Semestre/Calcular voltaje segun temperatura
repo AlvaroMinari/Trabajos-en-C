@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void main(){
+    float voltaje1;
+    float voltaje2;
+    float temperatura1;
+    float temperatura2;
+
+    printf("Ingresa la cantidad de voltaje minima: ");
+    scanf("%f", &voltaje1);
+    printf("Ingresa la cantidad de voltaje maxima: ");
+    scanf("%f", &voltaje2);
+
+    temperatura1 = voltaje1 * 5;
+    temperatura2 = voltaje2 * 5;
+
+    printf("\nLa temperatura del voltaje 1 es de %.2f y la del voltaje 2 es %.2f", temperatura1, temperatura2);
+}
