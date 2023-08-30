@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main()
+{
+    int peso, alto, ancho, largo, volumen, densidad;
+    printf("Ingrese el peso de la pieza entre 1 y 100 kg: ");
+    scanf("%d",&peso);
+    printf("Ingrese el alto de la pieza en cm: ");
+    scanf("%d",&alto);
+    printf("Ingrese el ancho de la pieza en cm: ");
+    scanf("%d",&ancho);
+    printf("Ingrese el largo de la pieza en cm: ");
+    scanf("%d",&largo);
+    volumen=alto*ancho*largo;
+   
+    if(peso<50){
+        densidad = peso / volumen;
+        printf("%d",densidad);
+    }    
+    if(peso>=50 && peso<=70){
+        densidad = peso / volumen * 1.5;
+        printf("%d",densidad);
+    }
+    if(peso>70){
+        densidad = peso / volumen *2;
+        printf("%d",densidad);
+    }
+     printf("La densidad de la pieza es de:%d",densidad);
+}
