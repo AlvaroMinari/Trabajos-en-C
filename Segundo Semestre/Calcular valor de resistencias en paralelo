@@ -1,0 +1,30 @@
+#include <stdio.h>
+int R1;
+int R2;
+int R3;
+float RT=0;
+int ingreso();
+float calculo();
+
+int main()
+{
+    ingreso();
+    calculo();
+    RT=calculo();
+    printf("La RT total es de: %f",RT);
+}
+int ingreso()
+{
+    printf("Ingrese el valor de la R1: \n");
+    scanf("%d",&R1);
+    printf("Ingrese el valor de la R2: \n");
+    scanf("%d",&R2);
+    printf("Ingrese el valor de la R3: \n");
+    scanf("%d",&R3);
+}
+
+float calculo()
+{
+    RT=1/(1/R1+1/R2+1/R3);
+    return RT;
+}
