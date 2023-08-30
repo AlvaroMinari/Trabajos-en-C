@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main()
+{
+    const int DIAS = 365;
+    
+    int edad;
+    int dias;
+   
+    printf("ingrese edad: \n");
+    
+    scanf("%d",&edad);
+   
+    dias = edad * DIAS;
+    printf("Dias:\n%d", dias);
+    
+}
