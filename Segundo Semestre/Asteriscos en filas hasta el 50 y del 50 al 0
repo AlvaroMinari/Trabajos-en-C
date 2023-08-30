@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    int numfiasc=1;
+    int numfidesc=50;
+    int filas;
+    for(filas=numfiasc;filas<=50;filas++){
+        for(int columnas=1;columnas<=filas;columnas++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    for(filas=numfidesc;filas>=1;filas--){
+        for(int columnas=1;columnas<=filas;columnas++){
+            printf("*");
+        }
+        printf("\n");
+    }
+}
