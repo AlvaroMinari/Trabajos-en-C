@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main()
+{
+    int TipoBotellas;
+    int TipoCaudales;
+    float CantidadDeB;
+    int TiempoXbotella;
+    int BotellasEnS;
+    printf("Tipo de botella a llenar:\n Ingrese 1000 para la botella de 1L Ingrese 1500 para la botella de 1.5L: ");
+    scanf("%d",&TipoBotellas);
+    
+    printf("tipo de caudal: \n Ingrese 100 para 100cm^3 \n Ingrese 150 para 150cm^3 \n Ingrese 250 para 250cm^3: ");
+    scanf("%d",&TipoCaudales);
+    
+  if(TipoBotellas==1000){
+      BotellasEnS=TipoBotellas/TipoCaudales;
+      TiempoXbotella=BotellasEnS+5;
+      CantidadDeB=3600/TiempoXbotella;
+      printf("Cantidad de botellas llenadas %.2f",CantidadDeB);
+      
+  }
+  if(TipoBotellas==1500){
+     BotellasEnS=TipoBotellas/TipoCaudales;
+     TiempoXbotella=BotellasEnS+10;
+     CantidadDeB=3600/TiempoXbotella;
+     printf("Cantidad de botellas llenadas %.2f",CantidadDeB);
+  }
+}
