@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    int espesores, anchos;
+    float PotenciaI=0, PotenciaF=0, FactorP, FactorS;
+    printf("Ingrese el valor de los espesores entre 2 3 y 4 mm: ");
+    scanf("%d",&espesores);
+    if(espesores==2){
+        FactorP=2.5;
+        FactorS=1;
+        PotenciaI=FactorP*FactorS*3000;
+        printf("La potencia inicial en W es de:%f",PotenciaI);
+        }
+    if(espesores==3){
+        FactorP=3.25;
+        FactorS=1.2;
+        PotenciaI=FactorP*FactorS*3000;
+        printf("La potencia inicial en W es de:%f",PotenciaI);
+        }
+    if(espesores==4){
+        FactorP=3.75;
+        FactorS=1.5;
+        PotenciaI=FactorP*FactorS*3000;
+        printf("La potencia inicial en W es de:%f",PotenciaI);
+        }
+    printf("\nIngrese el ancho de la placa entre 80 y 100 cm: ");
+    scanf("%d",&anchos);
+    if(anchos==80){
+        PotenciaF=PotenciaI+(anchos*10);
+        printf("La potencia final en W es de:%f",PotenciaF);
+    }
+    if(anchos==100){
+        PotenciaF=PotenciaI+(anchos*10);
+        printf("La potencia final en W es de:%f",PotenciaF);
+    }
+}
