@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    int celsius;
+    float kelvin;
+    float fahrenheit;
+    printf("Cantidad de celsius a convertir: \n");
+    scanf("%d",&celsius);
+    fahrenheit = 1.8 * celsius + 32;
+    kelvin = celsius + 273.15;
+    printf("fahrenheit: %.2f" , fahrenheit);
+    printf("\nkelvin %.2f" , kelvin);
+    
+}
