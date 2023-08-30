@@ -1,0 +1,182 @@
+/*
+DESARROLLO DEL TRABAJO PRÁCTICO  
+Usted se desempeña como programador en la empresa “Auto Plus” y deberá desarrollar un programa para automatizar un proceso de producción de piezas metálicas que necesitan ser sometidas a distintos procesos como se detalla a continuación.
+El programa debe tener un menú principal con las opciones para:
+Ciclo de Lavado Manual
+Ciclo Automático de Pintura Base
+Salir del programa
+
+El menú se ejecutará en forma permanente hasta que se seleccione la opción “Salir del programa”. Ejemplo de cómo se muestra el menú en la pantalla:
+Auto Plus, menú de opciones:
+Ejecutar Ciclo de Lavado Manual
+Ejecutar Ciclo Automático de Pintura Base
+Salir del programa
+Ingrese una opción (1, 2 o 3):
+
+Ciclo de Lavado Manual: en este proceso cada pieza es sometida a un lavado desengrasante durante cierto tiempo y luego pasa a un proceso de secado en horno durante otro tiempo, terminado el tiempo de secado el ciclo finaliza. La ejecución de ciclo comienza con el ingreso por parte del usuario del tiempo de lavado, que estará comprendido entre 30 y 60 segundos, a continuación, el usuario deberá ingresar el tiempo de secado, entre 20 y 90 segundos. Ambos valores deben ser controlados por el programa que no debe permitir continuar hasta que los valores no cumplan con las condiciones establecidas. Después de ingresar los dos valores solicitados el programa esperará que el operario presione la tecla “Enter” para comenzar el ciclo.
+Una vez iniciado el ciclo el programa informará por medio de mensajes apropiados el estado del proceso respetando los tiempos establecidos para cada operación. Al finalizar el ciclo, el programa mostrará el tiempo total empleado y la potencia consumida por cada etapa, la bomba eléctrica para el lavado consume 5W por segundo y el horno eléctrico de secado consume 12W por segundo.
+Ejemplo: si ingresa 30 segundos para el lavado y 20 segundos para el secado, el programa mostrará estos mensajes por pantalla:
+Presione <Enter> para iniciar el ciclo
+Iniciando proceso de lavado …
+(después de 30 segundos): Lavado finalizado
+Iniciando proceso de secado …
+(después de 20 segundos): Secado finalizado
+Ciclo Finalizado
+Tiempo Total: 50 segundos
+Potencia de Lavado: 150 W
+Potencia de Secado: 240 W
+Presione <Enter> para volver al menú
+
+Ciclo Automático: en esta opción los tiempos de cada etapa ya se encuentran pre-definidos y no es necesario que el usuario los ingrese al programa.
+Ciclo Automático de Pintura Base: este ciclo consta de 4 pasos:
+Baño decapante de la pieza, tiempo: 20 segundos
+Lavado desengrasante, tiempo: 35 segundos
+Secado en horno, tiempo 20 segundos
+Aplicar pintura base, tiempo 15 segundos
+Al seleccionar esta opción del menú principal el programa esperará que el usuario presione la tecla “Enter” para iniciar el ciclo.
+Una vez iniciado el ciclo el programa informará por medio de mensajes apropiados el estado del proceso respetando los tiempos establecidos para cada operación (igual que en el caso del lavado). Después de completar el ciclo debe volver a mostrar el menú principal.
+Importante: en todos los ciclos de espera el programa debe poder detectar la pulsación de la tecla Escape (ESC), cuando esto ocurra el programa debe pasar inmediatamente a la siguiente etapa del ciclo o finalizarlo si ya se encuentra en la última etapa. Si se trata del ciclo manual los totales informados deben ajustarse a los tiempos reales de cada etapa.
+La opción Salir del Programa finaliza su ejecución.
+*/
+
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+#include <conio.h>
+int TS;int TL;int T;int PS;int PL;
+void CDLM();void CADPB();void tiempo(int TE);
+
+
+void main()
+{
+   char enter;
+   int op=0;
+   printf("Auto Plus\n");
+   while(op!=3)
+  {
+    printf("Presione enter para continuar con el programa...\n");
+    enter=getchar();
+    if(enter=='\n')
+    printf("1 para Ciclo de Lavado Manual\n");
+    printf("2 para Ciclo Automático de Pintura Base\n");
+    printf("3 para Salir del programa\n");
+    printf("Ingrese opcion:");
+    scanf("%d",&op);
+    if(op<1 || op>3){
+        printf("Opcion inexistente\n");
+        continue;
+        
+    }
+   switch(op)
+      {
+          case 1:
+          CDLM();
+          break;
+          case 2:
+          CADPB();
+          break;
+      }
+  
+  printf("Fin del programa\n");}
+}
+
+void CDLM()
+{
+    char x;
+    printf("Presione ENTER para iniciar");
+    x=getchar();
+    if(x=='\n')
+    printf("Calculo de Ciclo de Lavado Manual\n");
+    printf("Ingrese el tiempo de lavado entre 20 y 90 (S): \n");
+    scanf("%d",&TL);
+    while(TL<20 || TL>90){
+           printf("Valores incorrectos, ingrese el tiempo de lavado entre 20 y 90 (S): \n");
+           scanf("%d",&TL);
+    }
+    printf("Iniciando proceso de lavado...\n");
+         time_t inicioLavado = time(NULL);
+         tiempo(tiempoLavado);
+         time_t finLavado = time(NULL);
+         printf("Lavado finalizado\n");
+    printf("Ingrese el tiempo de secado entre 30 y 60 (S): ");
+    scanf("%d",&TS);
+    while(TS<30 || TS>60){
+            printf("Valores incorrectos, ingrese el tiempo de secado entre 30 y 60 (S): ");
+            scanf("%d",&TS);
+    }
+    printf("Iniciando proceso de secado...\n");
+         time_t inicioSecado = time(NULL);
+         tiempo(tiempoSecado);
+         time_t finSecado = time(NULL);
+         printf("Secado finalizado\n");
+    T=TS+TL;
+    printf("Ciclo finalizado\n");
+    printf("Tiempo total:%dS\n",T);
+    PL=TL*5;
+    printf("La potencia consumida en el lavado es de: %d (W)\n",PL);
+    PS=TS*12;
+    printf("La potencia consumida en el secado es de: %d (W)\n",PS);
+    printf("Presione Enter para volver al menu");
+    enterr = getchar();
+    if(enterr=='\n'){
+        main();
+    }
+}
+
+
+void CADPB()
+{
+    int BDXP = 20;
+    int LD = 35;
+    int SH = 20;
+    int APB = 15;
+    char enterr;
+    printf("Presione ENTER para inciar el ciclo\n");
+    enterr=getchar();
+    if(enterr=='\n'){
+    printf("Iniciando el proceso de baño decapante de la pieza\n");
+    tiempo(BDXP);
+    printf("El baño decapante de la pieza terminado\n");
+    printf("Iniciando el proceso de lavado desengrasante\n");
+    tiempo(LD);
+    printf("El lavado desengrasante ha terminado\n");
+    printf("Iniciando el proceso para secado en horno\n");
+    tiempo(SH);
+    printf("El secado en horno ha terminado\n");
+    printf("Iniciando proceso para la aplicacion de pintura base\n");
+    tiempo(APB);
+    printf("La aplicacion de pintura base ha terminado\n");}
+
+    printf("Presione Enter para volver al menu");
+    enterr = getchar();
+    if(enterr=='\n'){
+        main();
+    }
+}
+    
+    
+
+void tiempo(int TE){
+
+    int count = 1;
+    char esc;
+
+    while(count <= TE){
+        printf(". ");
+        fflush(stdout);
+        sleep(1);
+        count++;
+        if(kbhit()){
+            fflush(stdin);
+            esc = getch();
+            if(esc == '\e'){
+                break;
+            }
+        }
+    }
+    
+    printf("\n");
+
+}
+
+
