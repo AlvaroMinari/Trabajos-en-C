@@ -1,0 +1,21 @@
+/*diseñar un programa que pida ingresar un numero entre 1 y 10
+que aparezca en fila y baje la linea en el numero elegido y que 
+vuelva a bajar otra linea, el numero elegido debe quedar solitario en la fila*/
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    int n1=0;
+    printf("Ingrese un numero entre 1 y 10: ");
+    scanf("%d",&n);
+    for(n1=1;n1<11;n1++)
+  {
+        if(n==n1)
+        {
+         printf("\n");
+         printf("%d\n",n1);
+        }
+    printf("%d",n1);
+  }
+}
