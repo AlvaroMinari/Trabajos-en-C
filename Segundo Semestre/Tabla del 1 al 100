@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void main()
+{
+    int n;
+    int acum= 0;
+
+    for(n = 1; n<= 100; n++)
+    {
+        acum++;
+        printf(" %d ", n);
+        if(acum == 10)
+        {
+            printf("\n");
+            acum = 0;
+        }
+    }
+}
