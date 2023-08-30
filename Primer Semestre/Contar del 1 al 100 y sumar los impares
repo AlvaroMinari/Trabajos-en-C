@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    int n1;
+    int suma;
+    for(n=1;n<101;n=n+2)
+    {
+        suma=suma+n;
+        printf("%d\n",n);
+    }
+    printf("La suma es: %d",suma);
+}
+
+
