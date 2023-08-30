@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void main()
+{
+
+    int n;
+    int n1;
+    int factorial=1;
+    printf("Ingrese un numero: ");
+    scanf("%d", &n1);
+
+    for(n=1; n<=n1;n++)
+    {
+        if(n1 == 0)
+        {
+            printf("%d! = 1 ", n1);
+        }
+        factorial = factorial * n; 
+    }
+
+    printf("%d! = %d ", n1, factorial);
+
+}
