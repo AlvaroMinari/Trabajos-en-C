@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void main()
+{
+
+    int n;
+    int tabla;
+    int multiplicacion;
+
+    printf("Ingrese un numero del 1 al 10: ");
+    scanf("%d", &n);
+
+    for(tabla = 1; tabla<=10; tabla++)
+    {
+        multiplicacion = n * tabla;
+        printf("Tabla: %d \n", multiplicacion);
+    }
+
+
+}
