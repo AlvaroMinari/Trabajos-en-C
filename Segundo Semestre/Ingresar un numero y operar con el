@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    float n;
+    float n1;
+    printf("ingrese un numero: ");
+    scanf("%f",&n);
+    printf("numero ingresado:%.3f ",n);
+    n1=n/2;
+    printf("\nSu numero divido 2:%.3f ",n1);
+}
