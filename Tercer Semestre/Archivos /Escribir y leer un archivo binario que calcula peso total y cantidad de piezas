@@ -1,0 +1,79 @@
+#include <stdio.h>
+
+struct PIEZA {
+    int numeroPieza;
+    float peso;
+};
+
+int main() {
+    FILE *fp;
+    
+    // Abrir el archivo de entrada en modo escritura binaria
+    fp = fopen("datos.bin", "wb");
+    
+    if (fp == NULL) {
+        printf("Error al abrir el archivo de entrada\n");
+        return 1;
+    }
+    
+    struct PIEZA pieza;
+    float pesoTotal = 0;
+    int cantidadPiezas = 0;
+    
+    // Solicitar al usuario el ingreso del número de pieza y peso, y guardarlos en el archivo
+    while (!feof(fp)) {
+        printf("Ingrese el número de pieza (ingrese 0 para finalizar): ");
+        scanf("%d", &pieza.numeroPieza);
+        
+        if (pieza.numeroPieza == 0) {
+            break;
+        }
+        
+        printf("Ingrese el peso de la pieza (entre 1.0 y 1.5 kg): ");
+        scanf("%f", &pieza.peso);
+        
+        // Verificar que el peso esté en el rango permitido
+        if (pieza.peso < 1.0 || pieza.peso > 1.5) {
+            printf("El peso debe estar entre 1.0 y 1.5 kg. Intente nuevamente.\n");
+            continue;
+        }
+        
+        // Guardar los datos en el archivo
+        fwrite(&pieza, sizeof(struct PIEZA), 1, fp);
+        
+        // Actualizar los valores de pesoTotal y cantidadPiezas
+        pesoTotal += pieza.peso;
+        cantidadPiezas++;
+    }
+    
+    // Cerrar el archivo de entrada
+    fclose(fp);
+    
+    printf("Datos guardados en el archivo datos.bin\n");
+    
+    // Abrir el archivo de entrada en modo lectura binaria
+    fp = fopen("datos.bin", "rb");
+    
+    if (fp == NULL) {
+        printf("Error al abrir el archivo de entrada\n");
+        return 1;
+    }
+    
+    pesoTotal = 0;
+    cantidadPiezas = 0;
+    
+    // Leer cada pieza del archivo y actualizar los valores de pesoTotal y cantidadPiezas
+    while (fread(&pieza, sizeof(struct PIEZA), 1, fp) == 1) {
+        pesoTotal += pieza.peso;
+        cantidadPiezas++;
+    }
+    
+    // Cerrar el archivo
+    fclose(fp);
+    
+    // Mostrar los resultados por pantalla
+    printf("Peso total de las piezas: %.2f kg\n", pesoTotal);
+    printf("Cantidad total de piezas: %d\n", cantidadPiezas);
+    
+    return 0;
+}
