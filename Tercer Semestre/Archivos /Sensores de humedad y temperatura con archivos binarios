@@ -1,0 +1,52 @@
+//trabajando con estructuras + archivos binarios
+
+//Escritura del archivo
+#include <stdio.h>
+
+struct SENSOR
+{
+    int numeroSensor;
+    int temperatura;
+    float humedad;
+};
+
+struct SENSOR s[] = {{1,10,50.5}, {2,8,49.7}, {3,12,58.3}, {4,9,52.6}};
+
+int main()
+{
+    FILE *fp;
+    fp = fopen("sensores.bin", "wb");
+    fwrite(s, sizeof(struct SENSOR), 4, fp);
+    fclose(fp);
+}
+
+//Lectura del archivo
+#include <stdio.h>
+
+struct SENSOR
+{
+    int numeroSensor;
+    int temperatura;
+    float humedad;
+};
+
+int main()
+{
+    struct SENSOR s;
+    FILE *fp;
+    FILE *ft;
+    fp = fopen("sensores.bin", "rb");
+    ft = fopen("listado.txt", "w");
+    
+    fread(&s, sizeof(s), 1, fp);
+    while(!feof(fp)){
+        fprintf(ft,"Nro: %d, temp: %d, Hum: %.2f\n", s.numeroSensor, s.temperatura, s.humedad);
+        printf("Nro: %d, temp: %d, Hum: %.2f\n", s.numeroSensor, s.temperatura, s.humedad);
+        fread(&s, sizeof(s), 1, fp);
+    }
+    fclose(fp);
+
+    
+    
+    fclose(ft);
+}
