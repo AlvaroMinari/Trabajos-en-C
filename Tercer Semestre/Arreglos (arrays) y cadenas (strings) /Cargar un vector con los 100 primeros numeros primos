@@ -1,0 +1,42 @@
+/******************************************************************************
+
+Crear un vector de 100 elementos con los 100 primeros numeros primos
+
+*******************************************************************************/
+#include <stdio.h>
+int p;
+int nprimo(int n);
+int main()
+{
+    int vector[100];
+    int n=1;
+    int i=0;
+    
+    while(i<100)
+    {
+       if(nprimo(n)==1)
+       {
+           vector[i]=n;
+           i++;
+           printf("%d\n",n);
+       }
+       n++;
+    }
+}
+
+int nprimo(int n)
+{
+    int p=1; //inicializamos en 1
+    int d; //variable del denominador
+    int r; //variable del resto
+    for(d=n-1;d>1;d--) //for que va a ir restando hasta llegar al valor de la unidad
+    {  
+        r=n%d;  //el resto es n/d
+        if(r==0)
+        { //si el resto es 0 le asignamos 0 a p y salimos del programa y retornamos p
+            p=0;
+            break;
+        }
+    }
+    return p;
+}
