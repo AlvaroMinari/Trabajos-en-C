@@ -1,0 +1,53 @@
+/*Realizar un programa que permita ingresar tres nombres en cadenas de 30 caracteres para cada nombre.
+   El programa deberá mostrar los nombres ingresados en orden alfabético, por ejemplo, si ingresamos:
+   Marcos
+   Claudia
+   Diego
+   El programa debe mostrar Claudia, Diego, Marcos*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char nombres1[30] = "";
+    char nombres2[30] = "";
+    char nombres3[30] = "";
+    char temp[30] = "";
+
+    // Ingreso de los nombres
+    printf("Ingrese el nombre 1: ");
+    scanf("%s", nombres1);
+
+    printf("Ingrese el nombre 2: ");
+    scanf("%s", nombres2);
+
+    printf("Ingrese el nombre 3: ");
+    scanf("%s", nombres3);
+
+    // Ordenamiento de los nombres en orden alfabético
+    if (strcmp(nombres1, nombres2) > 0) {
+        strcpy(temp, nombres1);
+        strcpy(nombres1, nombres2);
+        strcpy(nombres2, temp);
+    }
+
+    if (strcmp(nombres1, nombres3) > 0) {
+        strcpy(temp, nombres1);
+        strcpy(nombres1, nombres3);
+        strcpy(nombres3, temp);
+    }
+
+    if (strcmp(nombres2, nombres3) > 0) {
+        strcpy(temp, nombres2);
+        strcpy(nombres2, nombres3);
+        strcpy(nombres3, temp);
+    }
+
+    // Impresión de los nombres en orden alfabético
+    printf("Los nombres en orden alfabético son:\n");
+    printf("%s\n", nombres1);
+    printf("%s\n", nombres2);
+    printf("%s\n", nombres3);
+
+    return 0;
+}
