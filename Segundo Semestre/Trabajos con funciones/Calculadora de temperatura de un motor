@@ -1,0 +1,36 @@
+#include <stdio.h>
+void calculo();
+int main()
+{
+    calculo();
+}
+
+void calculo()
+{
+    const int tiempo=60;
+    int temp;
+    int rpm;
+    printf("Ingrese la temperatura inicial entre 0 y 30 grados: \n");
+    scanf("%d",&temp);
+    while(temp<0 || temp>30){
+        printf("Valores incorrectos, vuelva a ingresar la temperatura:");
+        scanf("%d",&temp);
+    }
+    printf("Ingrese la velocidad de giro entre 1000 y 5000 rpm: \n");
+    scanf("%d",&rpm);
+    while(rpm<1000 || rpm>5000){
+    printf("Valores incorrectos, vuelva a ingresar el rpm: \n");
+    scanf("%d",&rpm);
+    }
+    
+    if(rpm<1000){
+        temp=temp+(0.25*tiempo);
+    }
+    if(rpm>=1000 && rpm<=3000){
+        temp=temp+(0.4*tiempo);
+    }
+    if(rpm>3000){
+        temp=temp+(0.55*tiempo);
+    }
+    printf("La temperatura final del motor después de una hora de funcionamiento a la velocidad indicada es:%d grados",temp);
+}
