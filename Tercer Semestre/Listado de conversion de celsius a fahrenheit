@@ -1,0 +1,59 @@
+/*Implementar la función “gradosFahrenheit” usando este prototipo:
+float gradosFahrenheit(float gradosCentigrados);
+Deberá convertir los grados centígrados pasados por parámetro en grados Fahrenheit, aplicar está fórmula:
+Grados Fahrenheit = (Grados Centígrados * 1,8) + 32
+Se debe trabajar con variables de tipo float.
+Escribir un programa que use esta función y 
+que muestre por pantalla un listado de los valores en a
+mbas unidades desde 0 (cero) a 30 grados centígrados */
+
+
+#include <stdio.h>
+
+float gradosFarenheit(float gradosCentigrados) {
+    float fahrenheit = (gradosCentigrados * 1.8) + 32;
+    return fahrenheit;
+}
+
+void celsius_en_fahrenheit_tabla(int start_celsius, int end_celsius) {
+    int celsius;
+    printf("Celsius\tFahrenheit\n");
+    printf("-------\t----------\n");
+    for (celsius = start_celsius; celsius <= end_celsius; celsius ++) {
+        float fahrenheit = gradosFarenheit(celsius);
+        printf("%d\t%.1f\n", celsius, fahrenheit);
+    }
+}
+
+int main() {
+    celsius_en_fahrenheit_tabla(0,30);
+    return 0;
+}
+
+/* OTRA FORMA DE RESOLVERLO
+
+#include <stdio.h>
+
+float gradosfarenheit(float c);
+
+int main()
+{
+    int i;
+    float c=0;
+    float f;
+    printf("grados c    grados f\n");
+    for(i=0;i<31;i++)
+    {
+        f=gradosfarenheit(c);
+        printf("%.2f        %.2f\n",c,f);
+        c=c+1;
+    }
+}
+
+float gradosfarenheit(float c)
+{
+    float f;
+    f=(c*1.8)+32;
+    return f;
+}
+*/
