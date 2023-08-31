@@ -1,0 +1,41 @@
+/******************************************************************************
+
+Realizar un programa que permita al usuario ingresar una cadena de texto de hasta 30 caracteres
+   El programa deberá contar la cantidad de vocales presentes en el texto ingresado (a,e,i,o,u,A,E,I,O,U)
+   Mostrar por pantalla la cantidad de vocales, opcionalmente pueden diferenciar la cantidad de vocales
+   en minúscula de la cantidad en mayúscula.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char texto[31];
+    int contador_vocales = 0, contador_vocales_minusculas = 0, contador_vocales_mayusculas = 0;
+    
+    printf("Ingrese una cadena de texto (maximo 30 caracteres):\n");
+    fgets(texto, sizeof(texto), stdin); // Leer la línea completa
+    
+    // Eliminar el salto de línea final si existe
+    if (texto[strlen(texto) - 1] == '\n') {
+        texto[strlen(texto) - 1] = '\0';
+    }
+    
+    for (int i = 0; i < strlen(texto); i++) {
+        char letra = texto[i];
+        if (strchr("aeiouAEIOU", letra) != NULL) {
+            contador_vocales++;
+            if (letra >= 'a' && letra <= 'z') {
+                contador_vocales_minusculas++;
+            } else if (letra >= 'A' && letra <= 'Z') {
+                contador_vocales_mayusculas++;
+            }
+        }
+    }
+    
+    printf("Cantidad total de vocales: %d\n", contador_vocales);
+    printf("Cantidad de vocales minusculas: %d\n", contador_vocales_minusculas);
+    printf("Cantidad de vocales mayusculas: %d\n", contador_vocales_mayusculas);
+    
+    return 0;
+}
