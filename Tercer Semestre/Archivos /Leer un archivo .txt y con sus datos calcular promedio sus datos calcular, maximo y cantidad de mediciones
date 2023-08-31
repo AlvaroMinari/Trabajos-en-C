@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+#define MAX_MEDICIONES 100
+
+int main() {
+    FILE *fp;
+    FILE *fr;
+    int mediciones[MAX_MEDICIONES];
+    int cantidadMediciones = 0;
+    int temperatura;
+    int sumaTemperaturas = 0;
+    int temperaturaMaxima = 0;
+    
+    // Abrir el archivo de entrada en modo lectura
+    fp = fopen("temperaturas.txt", "r");
+    
+    if (fp == NULL) {
+        printf("Error al abrir el archivo de entrada\n");
+        return 1;
+    }
+    
+    // Abrir el archivo de salida en modo escritura
+    fr = fopen("Salida.txt", "w");
+    
+    if (fr == NULL) {
+        printf("Error al abrir el archivo de salida\n");
+        fclose(fp);
+        return 1;
+    }
+    
+    char linea[100];
+    
+    // Leer el archivo de entrada y guardar las mediciones
+    while (fgets(linea, sizeof(linea), fp) != NULL) {
+        if (sscanf(linea, "%*d %d", &temperatura) == 1) {
+            mediciones[cantidadMediciones] = temperatura;
+            sumaTemperaturas += temperatura;
+            
+            if (temperatura > temperaturaMaxima) {
+                temperaturaMaxima = temperatura;
+            }
+            
+            cantidadMediciones++;
+        }
+    }
+    
+    // Calcular la temperatura promedio
+    float temperaturaPromedio = (float) sumaTemperaturas / (float) cantidadMediciones;
+    
+    // Escribir los resultados en el archivo de salida
+    fprintf(fr, "Archivo de temperaturas\n");
+    fprintf(fr, "-----------------------\n");
+    fprintf(fr, "Temperatura Promedio: %.2f\n", temperaturaPromedio);
+    fprintf(fr, "Temperatura Máxima:   %d\n", temperaturaMaxima);
+    fprintf(fr, "Cantidad de Mediciones: %d\n", cantidadMediciones);
+    
+    // Cerrar los archivos
+    fclose(fp);
+    fclose(fr);
+    
+    printf("Proceso completado. Los resultados se han guardado en el archivo Salida.txt\n");
+    
+    return 0;
+}
