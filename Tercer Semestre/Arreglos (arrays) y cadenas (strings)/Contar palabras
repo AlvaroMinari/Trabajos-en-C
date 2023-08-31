@@ -1,0 +1,31 @@
+/******************************************************************************
+   Realizar un programa que permita al usuario ingresar una cadena de texto de hasta 80 caracteres
+   El programa deberá contar la cantidad de palabras que contiene el texto ingresado
+   Considrar el caracter de espacio (' ') como separador de palabras.
+   Mostrar por pantalla las cantidad obtenida.
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+int main() {
+    const int MAX_LONGITUD_TEXTO = 81;
+    char texto[MAX_LONGITUD_TEXTO];
+    int longitud_texto, i, cantidad_palabras = 0;
+
+    printf("Ingrese una cadena de texto: ");
+    gets(texto);
+
+    longitud_texto = strlen(texto);
+
+    for (i = 0; i < longitud_texto; i++) {
+        if (texto[i] == ' ') {
+            cantidad_palabras++;
+        }
+    }
+
+    // La cantidad de palabras es igual al número de espacios más 1
+    cantidad_palabras++;
+
+    printf("Cantidad de palabras en el texto: %d\n", cantidad_palabras);
+
+    return 0;
+}
