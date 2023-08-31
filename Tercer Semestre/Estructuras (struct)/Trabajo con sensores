@@ -1,0 +1,74 @@
+/******************************************************************************
+
+EJERCICIOS CON ESTRUCTURAS
+Paso 1: cargar el arreglo de 3 sensores
+Paso 2: Mostrar los valores cargados
+Paso 3: Mostrar la temperatura promedio de los 3 sensores
+Paso 4: Mostrar la humedad minima de los 3 sensores
+
+*******************************************************************************/
+#include <stdio.h>
+
+//declaracion de la estructura
+struct SENSOR{
+    float temperatura;
+    float humedad;
+};
+
+//prototipos de las funciones
+void cargarSensores(struct SENSOR []);
+void mostrarSensores(struct SENSOR []);
+void mostrarTemperaturaPromedio(struct SENSOR []);
+void mostrarHumedadMinima(struct SENSOR []);
+
+//declaracion del array y llamado a las funciones
+int main()
+{
+    struct SENSOR s[3];
+    cargarSensores(s);
+    mostrarSensores(s);
+    mostrarTemperaturaPromedio(s);
+    mostrarHumedadMinima(s);
+}
+
+void cargarSensores(struct SENSOR s[]){
+    int i;
+    printf("Carga de los sensores\n");
+    for(i=0; i<3; i++){
+        printf("Sensor %d: \n",i+1);
+        printf("Ingrese temperatura: \n");
+        scanf("%f",&s[i].temperatura);
+        printf("Ingrese humedad: \n");
+        scanf("%f",&s[i].humedad);
+    }
+}
+
+void mostrarSensores(struct SENSOR s[]){
+    int i;
+    printf("\n Datos de los sensores \n");
+    for(i=0; i<3; i++){
+        printf("Sensor: %d, Temperatura: %.2f, Humedad: %.2f\n", i+1, s[i].temperatura, s[i].humedad);
+    }
+}
+
+void mostrarTemperaturaPromedio(struct SENSOR s[]){
+    float promedio=0;
+    float suma;
+    int i;
+    for(i=0; i<3; i++){
+        suma = suma + s[i].temperatura;
+    }
+    promedio = suma / 3;
+    printf("La temperatura promedio es: %f\n", promedio);
+}
+
+void mostrarHumedadMinima(struct SENSOR s[]){
+    int i;
+    float HumedadMinima = 2000;
+    for(i=0; i<3; i++){
+        if(s[i].humedad<HumedadMinima){
+            HumedadMinima = s[i].humedad;
+        }
+    }
+    printf("La humedad minima es: %f",HumedadMinima);
+}
