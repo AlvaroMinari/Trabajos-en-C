@@ -1,0 +1,31 @@
+#include <stdio.h>
+int menor(int n1, int n2, int n3);
+int main()
+{
+    int n1;
+    int n2;
+    int n3;
+    int men;
+    printf("Ingrese el primer numero: ");
+    scanf("%d",&n1);
+    printf("Ingrese el segundo numero: ");
+    scanf("%d",&n2);
+    printf("Ingrese el tercer numero: ");
+    scanf("%d",&n3);
+    men=menor(n1,n2,n3);
+    printf("El numero menor es: %d",men);
+}
+int menor(int n1, int n2, int n3)
+{
+    int menor=0;
+    if(n1<n2 && n1<n3){
+        menor=n1;
+    }
+    if(n2<n1 && n2<n3){
+        menor=n2;
+    }
+    if(n3<n1 && n3<n2){
+        menor=n3;
+    }
+    return menor;
+}
