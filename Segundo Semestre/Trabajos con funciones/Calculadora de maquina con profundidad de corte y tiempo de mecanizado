@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <math.h>
+float PDC();
+int TDM();
+int main()
+{
+    int opcion;
+    while(opcion!=3)
+    {
+    printf("Calculadora de profundidad de corte y tiempo de mecanizado\n\n");
+    printf("Presione opcion 1 para calcular profundidad de corte\n");
+    printf("Presione opcion 2 para calcular tiempo de mecanizado\n");
+    printf("Presione opcion 3 para salir del programa\n");
+    scanf("%d",&opcion);
+    if(opcion<1 || opcion>3){
+    printf("Valores incorrectos, vuelva a ingresar\n");}
+    switch(opcion)
+    {
+        case 1:
+        PDC();
+        case 2:
+        TDM();
+        case 3:
+        printf("Fin del programa\n");
+    }
+}
+}
+float PDC()
+{
+    float profundidad;
+    int rpm;
+    float const PI=3.141592;
+    printf("Calculadora de profundidad\n");
+    printf("Ingrese un valor entre 1000 y 10000:\n ");
+    scanf("%d",&rpm);
+    while(rpm<1000 || rpm>10000){
+        printf("Ingrese nuevamente, rpm debe ser entre 1000 y 10000\n");
+        scanf("%d",&rpm);
+    }
+    
+    if(rpm>1000 || rpm<10000){
+    profundidad = (sqrt(PI * rpm)/60);
+    printf("La profundidad de corte [milímetros] en un minuto es:%f\n",profundidad);
+    }
+}
+
+int TDM()
+{
+    int espesor;
+    int VDM;
+    int TiempoDM;
+    printf("Calculadora de tiempo de mecanizado\n");
+    printf("Ingrese el valor del espesor dentre 1 y 10 mm:\n ");
+    scanf("%d",&espesor);
+    while(espesor<1 || espesor>10){
+        printf("Valores incorrectos, vuelva a ingresar\n");
+        printf("Ingrese el valor del espesor dentre 1 y 10 mm:\n ");
+        scanf("%d",&espesor);
+    }
+    printf("Ingrese la velocidad de mecanizado, 1 lento, 2 rapido: \n");
+    scanf("%d",&VDM);
+    while(VDM<1 || VDM>2){
+        printf("Valores incorrectos, vuelva a ingresar\n");
+        printf("Ingrese la velocidad de mecanizado, 1 lento, 2 rapido: \n");
+    scanf("%d",&VDM);
+    }
+    
+        if(espesor < 5){
+        if(VDM==1){
+            TiempoDM = espesor * 18;
+        }
+        if(VDM==2){
+            TiempoDM = espesor * 12;
+        }
+    }
+
+    if(espesor >= 5){
+        if(VDM==1){
+            TiempoDM = espesor * 25;
+        }
+        if(VDM==2){
+            TiempoDM = espesor * 20;
+        }
+    }
+     printf("El tiempo de mecanizado (segundos) es:%d\n",TiempoDM);
+}
