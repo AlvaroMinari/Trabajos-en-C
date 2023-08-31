@@ -1,0 +1,31 @@
+Ejercicios de practica tipo parcial
+1 ejercicio con un vector 
+1 ejercicio con una matriz
+
+VECTORES: tipoDeDato NombreVector [dimension(cantidad de elementos)];
+si queremos asignar valores al vector seria:
+int v[5]={1,2,3,4,5};
+si no tenemos los valores iniciales seria:
+int v[5];
+
+Recorridos: es recorrer el vector por todas sus posiciones.
+Normalmente los hacemos con un for con un indice entero. Ej:
+int i;
+for(i=0;i<5;i++){
+    v[i]=rand() % 100;
+}
+
+MATRICES: tipoDeDato NombreMatriz[dim1][dim2]....;
+Recorridos: es recorrer la matriz por todas sus posiciones.
+Para las matrices se necesitan 2 ciclos, uno que cargue datos a las columnas
+y otro que cargue datos a las filas.
+Ej:
+int matriz[3][4];
+for(f=0;f<3;f++){
+    for(c=0;c<4;c++){
+        m[f][c]=rand()%100
+    }
+}
+En este caso tenemos una matriz de 3 filas y 4 columnas
+el primer for recorre las filas y el segundo las columnas y se rellenan
+con los datos del rand que seran numeros menores a 100.
