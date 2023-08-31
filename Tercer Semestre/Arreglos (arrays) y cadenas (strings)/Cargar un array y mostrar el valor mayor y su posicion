@@ -1,0 +1,39 @@
+/******************************************************************************
+
+ Crear un array de 5 elementos, cargarlos con numeros aleatorios con la funcion rand()
+ luego mostrarlos, decir cual es el mayor de estos y por ultimo decir en que
+ posicion se encuentra este.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main() {
+	//declaracion 
+	float m[5];
+	int i;
+	float mayor=0;
+	int posicion;
+	//esta funcion hace que los numerosaleatorios generados 
+	//por el rand()no sean siempre los mismos y varien
+	srand(time(NULL));
+	//carga de los numeros
+	for (i = 0; i < 5; i++) {
+		m[i] = rand()%1000;
+	}
+	//mostrar los numeros
+	for (i = 0; i < 5; i++) {
+		printf("%.2f\n", m[i]);
+	}
+	//Encontrar el mayor valor obtenido
+	for (i = 0; i < 5; i++) {
+		if (m[i] > mayor) {
+			mayor = m[i];
+			posicion = i;
+		}
+	}
+	//mostrar el mayor valor obtenido
+	printf("Mayor valor: %.2f\n", mayor);
+	//mostrar la posicion del mayor valor obtenido
+	printf("Posicion del mayor: %d", posicion);
+}
