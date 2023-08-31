@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int menor(int n1, int n2);
+int main()
+{
+    int n1;
+    int n2;
+    int men;
+    printf("Ingrese el primer numero: ");
+    scanf("%d",&n1);
+    printf("Ingrese el segundo numero: ");
+    scanf("%d",&n2);
+    men=menor(n1,n2);
+    printf("El numero menor es: %d",men);
+}
+
+int menor(int n1, int n2)
+{
+    int menor=0;
+    if(n1>n2){
+        menor=n2;
+    }
+    if(n2>n1){
+        menor=n1;
+    }
+}
