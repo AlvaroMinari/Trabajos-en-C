@@ -1,0 +1,62 @@
+/*
+    Ingresar por teclado en una cadena de caracteres de logitud adecuada un número de teléfono con este formato:
+    "9999-999999999" (4 dígitos, 1 guión medio, 9 dígitos)
+   - El programa debe determinar si el valor ingresado cumple con el formato indicado, es decir que:
+     a- La cantidad total de caracteres ingresados sea de 14 caracteres
+     b- Que los primeros 4 caracteres sean números entre 0 y 9
+     c- Que el quinto caracter sea un guión medio (-)
+     d- Que los demás caracteres sean números entre 0 y 9
+   - Si alguna de las condiciones no se cumple mostrar un mensaje de error y finalizar el programa
+   - Si todo es correcto:
+     a- Mostrar la cadena ingresada
+     b- Copiar los 4 primeros dígitos en una cadena llamada "codigo"
+     c- Copiar los último 9 dígitos en una cadena llamada "numero"
+     d- Mostrar por pantalla el contenido de las 2 cadenas obtenidas
+*/
+#include <stdio.h>
+#include <string.h>
+  
+int main ()
+{
+    char numT[14];
+    int cod[5];
+    int num[10];
+    int indice;
+    
+    //Ingresamos el numero
+    printf("Ingrese el numero telefonico de 13 numeros con el formato 9999-999999999: \n" );
+    gets(numT);
+    
+    //Comprobamos
+    if(strlen(numT)!=14 || numT[4]!= '-')
+    {
+        printf("El numero fue ingresado incorrectamente \n");
+        return;
+    }
+    
+    for(indice=0; indice<4; indice++)
+    {
+        if(numT[indice]<'0'  || numT[indice]>'9'){
+            printf("Error, los numeros ingresados en el codigo deben estar entre 0 y 9 \n");
+            return;
+        }
+    }
+    
+    for(indice=5; indice<14; indice++){
+        if(numT[indice]<'0'  || numT[indice]>'9'){
+            printf("Error, los numeros ingresados en el resto del numero deben estar entre 0 y 9 \n");
+            return;
+        }
+    }
+    
+    //copiar el numero telefonico
+    strncpy(cod, numT, 4);
+    cod[4] = '\0';
+    strncpy(num, numT + 5, 9);
+    num[9]='\0';
+    
+    //mostrar el resultado
+    printf("Numero telefonico: %s\n",numT);
+    printf("Codigo: %s\n",cod);
+    printf("Numero: %s\n",num);
+}
