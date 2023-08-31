@@ -1,0 +1,44 @@
+/******************************************************************************
+
+   Realizar un programa que permita ingresar una fecha en una cadena de 12 caracteres, la fecha se debe ingresar
+   con formato "dd/mm/aaaa", por ejemplo "11/04/2023": día 11, mes 4 año 2023
+   El programa deberá mostrar la fecha ingresada pero con este formato:
+   "dd MMMM aaaa", donde MMMM es el nombre del mes ingresado, para el ejemplo anterior sería:
+   11 Abril 2023.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+    char fecha[12];
+    char dia[3], mes[3], año[5];
+    char nombre_mes[13][10] = {"", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+
+    printf("Ingrese la fecha (dd/mm/aaaa): ");
+    scanf("%s", fecha);
+
+    //Separar la fecha en día, mes y año
+    //copia los primeros 2 caracteres de la cadena fecha (es decir, el día) al arreglo dia.
+    strncpy(dia, fecha, 2);
+    dia[2] = '\0';
+    //strncpy(mes, fecha+3, 2);: copia los 2 caracteres de la cadena fecha que están 
+    //desplazados 3 posiciones a la derecha (es decir, el mes) al arreglo mes.
+    strncpy(mes, fecha+3, 2);
+    mes[2] = '\0';
+    //strncpy(año, fecha+6, 4);: copia los 4 caracteres de la cadena fecha que 
+    //están desplazados 6 posiciones a la derecha (es decir, el año) al arreglo año.
+    strncpy(año, fecha+6, 4);
+    año[4] = '\0';
+
+    // Convertir mes a número y obtener su nombre
+    //La función atoi() convierte una cadena de caracteres que representa un número entero en un valor numérico de tipo int.
+    int num_mes = atoi(mes);
+    char *nombre = nombre_mes[num_mes];
+
+    // Mostrar la fecha con el nuevo formato
+    printf("%s %s %s\n", dia, nombre, año);
+
+    return 0;
+    }
