@@ -1,0 +1,38 @@
+#include <stdio.h>
+void calculo();
+int main()
+{
+    calculo();
+}
+
+void calculo()
+{
+    int material;
+    int diametro;
+    int tiempo;
+    int tiempox;
+    printf("Ingrese el tipo de material que desea utilizar (1 o 2): \n");
+    scanf("%d",&material);
+    printf("Ingrese el tipo de remache que desea utilizar (3,4 p 5 mm):\n");
+    scanf("%d",&diametro);
+    printf("Ingrese cantidad de horas a trabajar entre 1 y 8: \n");
+    scanf("%d",&tiempo);
+    if(material==1){
+        if(diametro==3){
+            tiempox=tiempo*600;
+        }
+        if(diametro==4 || diametro==5){
+            tiempox=tiempo*480;
+        }
+    }
+    
+    if(material==2){
+        if(diametro==4 || diametro==5){
+            tiempox=tiempo*360;
+        }
+        if(diametro==5){
+            tiempox=tiempo*300;
+        }
+    }
+    printf("cantidad total de remaches que se pueden colocar: %d",tiempox);
+}
