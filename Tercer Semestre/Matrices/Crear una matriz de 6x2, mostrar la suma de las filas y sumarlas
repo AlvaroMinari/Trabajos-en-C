@@ -1,0 +1,36 @@
+//Crear una matriz de dos dimensiones con 6 filas y 2 columnas y muestre la suma de cada fila
+// y mostrar la suma de todo
+#include <stdio.h>
+#include <stdio.h>
+
+int main()
+{
+    int matriz[6][2] = {10, 2, 5, 1, 8, 4, 2, 9, 5, 7, 8, 3};
+    int f;
+    int c;
+    int s = 0;
+    int total = 0;
+    
+    for(c = 0; c < 2; c++)
+    {
+        s = 0;
+        for(f = 0; f < 6; f++)
+        {
+            s = s + matriz[f][c];
+        }
+        printf("columna: %d suma: %d\n", c, s);
+    }
+    
+    // Calcular la suma total
+    for(f = 0; f < 6; f++)
+    {
+        for(c = 0; c < 2; c++)
+        {
+            total = total + matriz[f][c];
+        }
+    }
+    
+    printf("La suma total es de: %d\n", total);
+    
+    return 0;
+}
