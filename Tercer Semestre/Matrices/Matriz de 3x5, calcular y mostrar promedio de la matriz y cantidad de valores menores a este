@@ -1,0 +1,46 @@
+/*
+   Declarar una matriz de 3 filas y 5 columnas de tipo entero
+   Cargar la matriz con valores aleatorios entre 0 y 1000
+   Determinar y mostrar por pantalla el valor promedio de toda la matriz.
+   Determinar y mostrar por pantalla la cantidad de valores menores al promedio calculado en el paso anterior
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    //declaracion
+    int matriz[3][5];
+    int f;
+    int c;
+    int suma=0;
+    int promedio;
+    int menor=0;
+    
+    //cargar la matriz
+    for(f=0; f<3; f++){
+        for(c=0; c<5; c++){
+            matriz[f][c] = rand() % 1000;
+            suma = suma + matriz[f][c];
+            printf("valores: %d\n",matriz[f][c]);
+        }
+    }
+    
+    //calcular el promedio
+    promedio = suma / 15;
+    
+    //calcular la cantidad de valores menores al promedio
+    for(f=0; f<3; f++){
+        for(c=0; c<5; c++){
+             if (matriz[f][c] < promedio) {
+                menor++;
+            }
+        }
+    }
+    
+    //Mostrar el promedio y cantidad de valores menores a este
+    printf("El promedio de toda la matriz es de: %d\n",promedio);
+    printf("Cantidad de valores menores al promedio: %d\n", menor);
+    
+}
