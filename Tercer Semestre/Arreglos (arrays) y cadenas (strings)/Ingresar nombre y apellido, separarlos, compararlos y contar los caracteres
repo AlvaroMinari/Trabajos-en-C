@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char nombre[20]="";
+    char apellido[20]="";
+    char NombreCompleto[40]="";
+    int n1;
+    printf("Ingrese su nombre: \n");
+    gets(nombre); //guardamos el nombre ingresado
+    printf("Ingrese su apellido: \n");
+    gets(apellido); //guardamos el apellido ingresado
+    
+    printf("Comparacion entre nombre y apellido: %d\n", strcmp(nombre,apellido)); //comparamos nombre y apellido tomandolos como
+                                                                                  //parametros, a==b=0 | a>b=>0 | a<b=<0
+    
+    strcpy(NombreCompleto,nombre); //copiamos nombre en nombre completo
+    strcat(NombreCompleto," "); //agregamos un espacio adelante del nombre copiado antes
+    strcat(NombreCompleto,apellido); //agregamos el apellido seguido del espacio
+    printf("%s\n",NombreCompleto); //mostramos el nombre completo
+    
+    n1 = strlen(NombreCompleto);  //asignamos a una variable la longitud del texto y luego la mostramos en el printf
+    printf("Numero de chars: %d",n1);
+}
