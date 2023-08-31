@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void main()
+{
+    // abrir el archivo txt
+    FILE *fp;
+    int medicion;
+    float temperatura;
+    char linea[100];
+
+    fp = fopen("temperaturas.txt", "r");
+    if(fp != NULL)
+    {
+        // leer la primera linea de titulos
+        fgets(linea, 100, fp);
+        printf("%s\n", linea);
+        //
+        while(!feof(fp))
+        {
+            fscanf(fp, "%d", &medicion);
+            fscanf(fp, "%f", &temperatura);
+            printf("Medicion: %d, Temperatura: %.2f\n", medicion, temperatura);
+        }
+        // cerrar el archivo
+        fclose(fp);
+    }
+    else
+    {
+        printf("Error de apertura");
+    }
+}
