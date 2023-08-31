@@ -1,0 +1,37 @@
+/*
+   Declarar un vector de tipo entero de 10 elementos
+   Cargar el vector con números aleatorios entre 0 y 100
+   Determinar el mayor valor cargado que ocupe una posición par del vector
+   Mostrar el valor y la posición que ocupa
+*/
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+	//declaracion 
+	int v[10];
+	int i;
+	int mayor=0;
+	int posicion;
+
+	//carga de los numeros
+	for (i = 0; i < 10; i++) {
+		v[i] = rand()%100;
+	}
+	//mostrar los numeros
+	for (i = 0; i < 10; i++) {
+		printf("%d\n", v[i]);
+	}
+	//Encontrar el mayor valor obtenido que sea par
+	for (i = 0; i < 10; i++) {
+	    if(v[i]%2==0){
+		if (v[i] > mayor){
+			mayor = v[i];
+			posicion = i;
+		}
+	  }
+	}
+	//mostrar el mayor valor obtenido
+	printf("Mayor valor: %d\n", mayor);
+	//mostrar la posicion del mayor valor obtenido
+	printf("Posicion del mayor: %d", posicion);
+}
