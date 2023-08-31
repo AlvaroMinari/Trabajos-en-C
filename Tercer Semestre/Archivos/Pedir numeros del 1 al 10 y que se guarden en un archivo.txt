@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    FILE *fp;
+    int numero;
+    fp = fopen("numeroos.txt", "w");
+
+    if (fp != NULL) {
+        do {
+            printf("Ingrese un numero del 1 al 10 (0 para terminar): ");
+            scanf("%d", &numero);
+            if (numero > 0 && numero < 11) {
+                fprintf(fp, "%d\n", numero);
+                }
+        } while(numero > 0 && numero < 11);
+
+        fclose(fp);
+    
+     }else {
+        printf("Error en la apertura del archivo.\n");
+    }
+}
