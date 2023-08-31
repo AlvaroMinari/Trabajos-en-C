@@ -1,0 +1,21 @@
+//Crear una matriz de dos dimensiones con 3 filas y 4 columnas y rellenarla con ceros
+
+
+#include <stdio.h>
+
+int main()
+{
+    int matriz[3][4]; //creamos una matriz de 3x4
+    int f; //variable de las filas
+    int c; //variable de las columnas
+    
+    for(f=0; f<3; f++) //for para rellenar las filas
+    {
+        for(c=0; c<4; c++) //for para rellenar las columnas
+        {
+            matriz[f][c]=0;
+            printf("%d ", matriz[f][c]);// Imprimir el valor de la celda
+        }
+        printf("\n");// Saltar a la siguiente fila después de imprimir una fila completa
+    }
+}
