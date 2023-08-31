@@ -1,0 +1,28 @@
+#include <stdio.h>
+void calculo();
+int main()
+{
+    calculo();
+}
+
+void calculo()
+{
+    int KxM;
+    float vel;
+    int const tiempo=10;
+    printf("Calculadora de cuanto material movera la cinta en 10 minutos\n");
+    
+    printf("Ingrese velocidad de la cinta entre 0,5 y 2 [m/s]\n");
+    scanf("%f",&vel);
+    if(vel<0.5 || vel>2){
+        printf("Valores incorrectos");
+    }
+    if(vel<=1.5 && vel>0.5){
+        KxM=vel*6*tiempo;
+        printf("La cantidad de material movida en 10 minutos es de: %d kg",KxM);
+    }
+    if(vel>1.5 && vel<2){
+        KxM=vel*10*tiempo;
+        printf("La cantidad de material movida en 10 minutos es de: %d kg",KxM);
+    }
+} 
