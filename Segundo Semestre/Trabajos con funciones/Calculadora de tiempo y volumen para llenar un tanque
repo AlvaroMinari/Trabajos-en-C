@@ -1,0 +1,26 @@
+int main()
+{
+    calculo();
+}
+
+void calculo()
+{
+    float volumen;
+    int AAC;
+    float tiempo;
+    float tiempoE;
+    const float PI = 3.14;
+    const int radio = 50; 
+    printf("Ingrese la altura que desea completar entre 20 y 80 cm: \n");
+    scanf("%d",&AAC); 
+    
+    volumen=PI*(radio*radio)*AAC;
+    printf("Volumen a llenar en cm cubico %6.f\n",volumen);
+   
+   
+    printf("Tiempo para llenar el tanque\n ");
+    tiempo=volumen/3000;
+    printf("Tiempo empleado en minutos: %.1f\n",tiempo);
+    tiempoE=tiempo/60;
+    printf("Este tiempo en horas: %.2f",tiempoE);
+}
