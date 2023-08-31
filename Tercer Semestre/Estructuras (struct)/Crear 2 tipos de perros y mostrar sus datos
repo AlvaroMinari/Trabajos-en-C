@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+struct perro{
+  char nombre[30];
+  int edadMeses;
+  float peso;
+}perro1={"Paleta",23,10.5},
+perro2={"palita",14,7.5};
+
+int main()
+{
+    printf("Nombre: %s\n Edad en meses: %d\n Peso: %f\n",perro1.nombre,perro1.edadMeses,perro1.peso);
+    printf("Nombre: %s\n Edad en meses: %d\n Peso: %f\n",perro2.nombre,perro2.edadMeses,perro2.peso);
+}
