@@ -1,0 +1,81 @@
+#include <stdio.h>
+float CalcularCorriente();
+float CalcularVoltaje();
+float CalcularResistencia();
+void main()
+{
+   float I;
+   float V;
+   float R;
+   int op=0;
+   printf("Ley de ohm\n");
+   while(op!=4)
+  {
+    printf("1 para calcular corriente (I)\n");
+    printf("2 para calcular voltaje (V)\n");
+    printf("3 para calcular resistencia (R)\n");
+    printf("4 para salir\n");
+    printf("Ingrese opcion:");
+    scanf("%d",&op);
+    if(op<1 || op>4){
+        printf("Opcion inexistente\n");
+        continue;
+    }
+   switch(op)
+      {
+          case 1:
+          I= CalcularCorriente();
+          printf("Valor de I:\n%f",I);
+          break;
+          case 2:
+          V= CalcularVoltaje();
+          printf("Valor de V:\n%f",V);
+          break;
+          case 3:
+          R= CalcularResistencia();
+          printf("Valor de R:\n%f",R);
+          break;
+      }
+  }
+  printf("Fin del programa\n");
+}
+
+float CalcularCorriente()
+{
+    float I;
+    float V;
+    float R;
+    printf("Calculo de corriente\n");
+    printf("Ingrese el valor del voltaje:");
+    scanf("%f",&V);
+    printf("Ingrese el valor de la resistencia:");
+    scanf("%f",&R);
+    I=V/R;
+    return I;
+}
+float CalcularResistencia()
+{
+    float I;
+    float V;
+    float R;
+    printf("Calculo de Resistencia\n");
+    printf("Ingrese el valor del voltaje:");
+    scanf("%f",&V);
+    printf("Ingrese el valor de la corriente:");
+    scanf("%f",&I);
+    R=V/I;
+    return R;
+}
+float CalcularVoltaje()
+{
+    float I;
+    float V;
+    float R;
+    printf("Calculo de voltaje\n");
+    printf("Ingrese el valor de corriente:");
+    scanf("%f",&I);
+    printf("Ingrese el valor de la resistencia:");
+    scanf("%f",&R);
+    V=R*I;
+    return V;
+}
