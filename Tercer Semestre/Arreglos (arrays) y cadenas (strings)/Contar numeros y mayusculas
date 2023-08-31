@@ -1,0 +1,32 @@
+/******************************************************************************
+
+Realizar un programa que permita al usuario ingresar una cadena de texto de hasta 50 caracteres
+   El programa deberá contar la cantidad de caracteres de tipo letras mayúsculas (A...Z) y 
+   la cantidad de caracteres de tipo números (0..9) presentes en el texto ingresado
+   Mostrar por pantalla las cantidades obtenidas.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char texto[50];
+    int i, mayusculas = 0, numeros = 0;
+
+    printf("Ingrese una cadena de texto: ");
+    gets(texto);
+
+    for (i = 0; i < strlen(texto); i++) {
+        if (texto[i] >= 'A' && texto[i] <= 'Z') {
+            mayusculas++;
+        }
+        else if (texto[i] >= '0' && texto[i] <= '9') {
+            numeros++;
+        }
+    }
+
+    printf("Cantidad de letras mayusculas: %d\n", mayusculas);
+    printf("Cantidad de numeros: %d\n", numeros);
+
+    return 0;
+}
