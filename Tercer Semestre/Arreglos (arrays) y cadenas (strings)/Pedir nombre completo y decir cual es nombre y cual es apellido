@@ -1,0 +1,44 @@
+/******************************************************************************
+Realizar un programa que permita ingresar el nombre y apellido de 
+una persona en una cadena de 50 caracteres.
+el programa deberá copiar el nombre a una segunda cadena de 
+30 caracteres y el apellido a otra cadena de 30 caracteres
+Mostrar el contenido de las cadenas obtenidas en 2 líneas separadas.
+*******************************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char nombre_apellido[50]; // Cadena para el nombre y apellido
+    char nombre[30]; // Cadena para el nombre
+    char apellido[30]; // Cadena para el apellido
+
+    // Solicitar al usuario que ingrese el nombre y apellido
+    printf("Ingrese el nombre y apellido (maximo 50 caracteres):\n");
+    scanf("%49[^\n]", nombre_apellido); // Lee hasta 49 caracteres hasta encontrar una nueva línea
+
+    // Buscar la posición del espacio en blanco para separar nombre y apellido
+    int espacio = -1;
+    for (int i = 0; i < strlen(nombre_apellido); i++) {
+        if (nombre_apellido[i] == ' ') {
+            espacio = i;
+            break;
+        }
+    }
+
+    // Si se encontró el espacio, copiar nombre y apellido a las cadenas correspondientes
+    if (espacio != -1) {
+        strncpy(nombre, nombre_apellido, espacio);
+        nombre[espacio] = '\0'; // Agregar el terminador de cadena al final
+        strcpy(apellido, nombre_apellido + espacio + 1); // Copiar apellido a partir del espacio
+
+        // Mostrar el contenido de las cadenas separadas
+        printf("Nombre: %s\n", nombre);
+        printf("Apellido: %s\n", apellido);
+    } else {
+        printf("No se encontró el espacio en blanco para separar el nombre y apellido.\n");
+    }
+
+    return 0;
+}
